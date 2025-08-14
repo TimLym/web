@@ -1,0 +1,99 @@
+@use "./reset";
+@use "./variables" as *;
+@use "./function" as *;
+@use "./keyFrame";
+
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Ubuntu&display=swap');
+
+@font-face {
+    font-family: posse;
+    src: url(../webfonts/akaPosse.ttf);
+}
+
+@font-face {
+    font-family: superGolden;
+    src: url(../webfonts/Super\ Golden.ttf);
+}
+
+/* 共用區 */
+// 共用區-區塊標題 
+
+.title {
+    margin: $spacing-ex 0 $spacing-x-xl;
+
+    * {
+        text-align: center;
+    }
+
+    h2 {
+        font-family: "superGolden";
+        font-size: $font-size-xxxl;
+        @include border-b;
+        line-height: 1;
+        font-weight: $f-w-b;
+    }
+
+    h3 {
+        font-family: $family-tc;
+        font-size: $font-size-lg;
+    }
+}
+
+.logo {
+    width: 55px;
+}
+
+.icon {
+    a {
+        width: 35px;
+        height: 35px;
+        margin: $spacing-xxs;
+    }
+}
+
+@each $social in fb,ig,line {
+    .icon-#{$social} {
+        background-image: url(../images/icon-#{$social}.svg);
+        &:hover {
+            background-image: url(../images/icon-#{$social}-hover.svg);
+        }
+    }
+}
+
+// 頁首區
+#topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $width-full;
+    z-index: $z-ex;
+    @extend %flex-between;
+    padding: $spacing-xs $spacing-xl;
+
+    ul {
+        @extend %flex-end;
+    }
+    .menu {
+        padding: $spacing-x-xs;
+        border-radius: $radius-ex;
+        @include glassmorphism;
+        a {
+            font-family: $family-en;
+            font-weight: $f-w-a;
+            margin: $spacing-xs;
+            @include border-b(2px, transparent);
+            
+            &:hover {
+                color: $deep;
+                @include bordered(2px, $deep);
+            }
+        }
+    }
+}
+
+// 按鈕區
+#contactform {
+    .btn-animat {
+        @extend %btn-animat
+    }
+}

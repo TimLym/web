@@ -1,0 +1,39 @@
+@use "../variables/" as * ;
+@use "./mixin" as *; 
+// 因為_extend也在同資料夾中，不可以直接調用整個function資料夾
+
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+%flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+%btn-animat {
+    border-radius: $radius-ex;
+    @extend %flex-center;
+    height: 60px;
+    width: 210px;
+    cursor: pointer;
+    margin: $spacing-md auto;
+    @include bordered;
+    color: $lesser-4;
+    letter-spacing: $spacing-xs;
+    padding: 0 32px 0 42px;
+    
+    &:hover {
+        @include anmt($name: rotate);
+        span {
+            @include anmt($name: storm, $speed: 0.7s 0.1s);
+        }
+    }
+}

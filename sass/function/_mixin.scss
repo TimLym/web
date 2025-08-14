@@ -1,0 +1,24 @@
+@use "../variables/" as *;
+
+@mixin border-b ($width: 3px, $color: $charoal ) {
+    border-bottom: solid $width $color;
+}
+
+@mixin bordered ($width: 1px, $color: $lesser-3) {
+    border-bottom: solid $width $color;
+}
+
+@mixin anmt ($name, $speed: .7s) {
+    animation: $name $speed ease-in-out both;
+}
+
+@mixin glassmorphism () {
+    background-image: linear-gradient(to right bottom,
+            $alpha-40,
+            $alpha-70);
+    @include bordered(2px, $alpha-40);
+    backdrop-filter: blur(10px);
+    /* 容器的陰影可以針對元素本身，子元素就不會套用 */
+    box-shadow: 2px 2px 5px $alpha-b-20,
+        inset -1px -1px 1px $alpha-40;
+}

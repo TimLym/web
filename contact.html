@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>FlowerMarket</title>
+</head>
+
+<body>
+    <!-- 頁首區 -->
+    <header id="topbar">
+        <div class="logo">
+            <img src="./images/logo_b.svg" alt="logo" id="logo">
+        </div>
+        <nav class="navigation">
+            <ul class="icon">
+                <li><a href="#" class="icon-fb"></a></li>
+                <li><a href="#" class="icon-ig"></a></li>
+                <li><a href="#" class="icon-line"></a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="#">SERVICE</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">VIDEO</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主要內容區 -->
+    <main>
+        <!-- 聯絡我們 -->
+        <section id="contact">
+            <!-- 標題區塊 -->
+            <header class="title">
+                <h2>CONTACT</h2>
+                <h3>聯絡我們</h3>
+            </header>
+            <!-- 聯絡區塊 -->
+            <div class="content">
+                <!-- 資訊 -->
+                <div class="address">
+                    <!-- 品牌名稱 -->
+                    <h1>芮塔花室</h1>
+                    <!-- 聯絡方式 -->
+                    <address>
+                        <p>連絡電話：02-98765432</p>
+                        <p>營業時間：10:00~20:00</p>
+                        <p>地址：台北市中中區大大路一段7段7號</p>
+                    </address>
+                    <!-- google map -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28912.099408666476!2d121.53518736362453!3d25.067567967527015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abf1a4142659%3A0x93180ddcb6758a3a!2z6Ie65YyX5p2-5bGx5qmf5aC0!5e0!3m2!1szh-TW!2stw!4v1753778081270!5m2!1szh-TW!2stw"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <!-- 表單 -->
+                <form name="contactForm" id="contactForm" action="" method="post" accept-charset="UTF-8">
+
+                    <label for="userName">*姓名：</label>
+                    <input type="text" name="userName" id="userName" title="姓名欄位" placeholder="您的姓名" required autofocus>
+
+                    <label for="tel">連絡電話：</label>
+                    <input type="tel" name="tel" id="tel" title="連絡電話欄位" placeholder="例如：0987654321">
+
+                    <label for="email">*Email：</label>
+                    <input type="email" name="email" id="email" required title="Email欄位" placeholder="請輸入Email">
+
+                    <label for="textArea">留言：</label>
+                    <textarea name="textArea" id="textArea" title="留言欄位" placeholder="請輸入留言" rows="7"
+                        cols="50"></textarea>
+
+                    <button class="btn-animat" type="submit">
+                        <span>送出表單</span>
+                    </button>
+
+                </form>
+            </div>
+            <!-- 裝飾花朵 -->
+            <figure id="flower_1"><img src="./images/flower_r.png" alt="裝飾花朵"></figure>
+            <figure id="flower_2"><img src="./images/flower_w.png" alt="裝飾花朵"></figure>
+        </section>
+    </main>
+
+    <!-- 頁尾區 -->
+    <footer>
+        <h2>芮塔花室
+            <span>Rita Flower</span>
+        </h2>
+        <nav>
+            <!-- ul>li*6>a -->
+            <ul class="sitemap">
+                <li><a href="./index.html">HOME</a></li>
+                <li>
+                    <a href="#">NEWS</a>
+                    <!-- ul>li*3>a[href="#"] -->
+                    <ul>
+                        <li><a href="#">優惠活動</a></li>
+                        <li><a href="#">媒體報導</a></li>
+                        <li><a href="#">商店公告</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">SERVICE</a>
+                    <ul>
+                        <li><a href="#">服務項目1</a></li>
+                        <li><a href="#">服務項目2</a></li>
+                        <li><a href="#">服務項目3</a></li>
+                        <li><a href="#">服務項目4</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">VIDEO</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+        <small>Copyright &copy; 2025 Rita Flower.</small>
+    </footer>
+</body>
+
+</html>
