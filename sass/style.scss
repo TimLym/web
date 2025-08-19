@@ -19,7 +19,8 @@
 // 共用區-區塊標題 
 
 .title {
-    margin: $spacing-ex 0 $spacing-x-xl;
+    margin: $spacing-ex 0 $spacing-xl;
+    position: relative;
 
     * {
         text-align: center;
@@ -31,6 +32,28 @@
         @include border-b;
         line-height: 1;
         font-weight: $f-w-b;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-color: $lesser-4;
+            top: -15px;
+            left: -15px;
+            width: 20px;
+            height: 20px;
+            border-radius: $radius-ex;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            background-color: $lesser-4;
+            bottom: 20px;
+            right: -10px;
+            width: 15px;
+            height: 15px;
+            border-radius: $radius-ex;
+        }
     }
 
     h3 {
@@ -51,13 +74,26 @@
     }
 }
 
-@each $social in fb,ig,line {
+@each $social in fb, ig, line {
     .icon-#{$social} {
         background-image: url(../images/icon-#{$social}.svg);
+
         &:hover {
             background-image: url(../images/icon-#{$social}-hover.svg);
         }
     }
+}
+
+.more {
+    width: 100px;
+    // height: 20px; 行高設定跟高度一樣，文字也會自動垂直置中
+    line-height: 20px; // 單行文字垂直置中，可以直接設定取代高度
+    text-align: center;
+    background-color: $lesser-4;
+    padding: $spacing-xs $spacing-lg;
+    margin-top: $spacing-lg;
+    color: $light;
+    border-radius: $radius-ex;
 }
 
 // 頁首區
@@ -73,16 +109,18 @@
     ul {
         @extend %flex-end;
     }
+
     .menu {
         padding: $spacing-x-xs;
         border-radius: $radius-ex;
         @include glassmorphism;
+
         a {
             font-family: $family-en;
             font-weight: $f-w-a;
             margin: $spacing-xs;
             @include border-b(2px, transparent);
-            
+
             &:hover {
                 color: $deep;
                 @include bordered(2px, $deep);
@@ -91,9 +129,354 @@
     }
 }
 
-// 按鈕區
-#contactform {
-    .btn-animat {
-        @extend %btn-animat
+/*主要內容區*/
+#index {
+    section {
+        @extend %flex-center;
+        flex-direction: column;
+        height: 100vh;
+
+        @media ($mediaMd) {
+            &#video {
+                height: auto;
+                padding-bottom: $spacing-ex;
+            }
+        }
+    }
+}
+
+.list-box {
+    display: flex;
+    gap: $spacing-xl;
+    width: $width-80;
+    max-width: 1100px; // 集中在中間，不會過度分散
+
+    .item {
+        flex: 1;
+        @include bordered;
+        border-radius: $radius-md;
+        overflow: hidden; // 讓超過圓角的部分被影藏
+    }
+}
+
+/* 最新消息 */
+
+#news {
+    background-color: $bg-1;
+
+    article {
+        @media ($mediaMd) {
+            &:last-child {
+                display: none;
+            }
+        }
+
+        @media ($mediaSm) {
+            &:nth-child(n+2) {
+                display: none;
+            }
+        }
+    }
+
+    a {
+        &:hover {
+
+            .text-box {
+                background-color: $light;
+
+            }
+
+            figure {
+                filter: brightness(70%);
+            }
+        }
+
+        figure {
+            height: 30vh;
+            transition: $speed-fast;
+
+            img {
+                @extend %img-cover;
+            }
+        }
+
+        .text-box {
+            padding: $spacing-md;
+            transition: $speed-fast;
+
+            h2 {
+                @extend %list-title;
+            }
+
+            p {
+                // text-align: justify; 文字齊行(英文不建議)
+                @extend %multiple-lines;
+                -webkit-line-clamp: 4;
+            }
+        }
+    }
+}
+
+// 服務項目
+#service {
+    background-color: $bg-2;
+
+    .list-box {
+        @media ($mediaMd) {
+            flex-direction: column;
+            height: 70vh;
+        }
+
+        .item {
+
+            display: flex;
+            align-items: flex-end;
+            height: 50vh;
+            background-size: cover; // 自動縮放，並自動剪裁掉右下圖片範圍
+            background-position: center; // 背景置中要另外寫
+
+            @media ($mediaMd) {
+                &:nth-child(n+3) {
+                    display: none;
+                }
+            }
+
+            @media ($mediaSm) {
+                &:nth-child(n+2) {
+                    display: none;
+                }
+            }
+
+            &:nth-child(1) {
+                background-image: url(../images/pt_svc1.jpg);
+            }
+
+            &:nth-child(2) {
+                background-image: url(../images/pt_svc2.jpg);
+            }
+
+            &:nth-child(3) {
+                background-image: url(../images/pt_svc3.jpg);
+            }
+
+            &:nth-child(4) {
+                background-image: url(../images/pt_svc4.jpg);
+
+            }
+
+            a {
+                padding: $spacing-md;
+                color: $white;
+                background-color: $alpha-b-60;
+                width: 100%;
+
+                h2 {
+                    @extend %list-title;
+                }
+
+                p {
+
+                    @extend %single-line;
+                }
+
+                &:hover {
+                    color: $black;
+                    background-color: $alpha-70;
+                }
+            }
+        }
+    }
+}
+
+// 相關影片
+#video {
+    background-image: url(../images/bg_contact.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    div {
+        @extend %flex-center;
+        height: 50vh;
+
+        @media ($mediaMd) {
+            width: 70%;
+            height: auto;
+        }
+
+        video {
+            height: 100%;
+
+            @media ($mediaMd) {
+                width: 70%;
+                height: auto;
+            }
+        }
+    }
+}
+
+// 關於我們
+
+#about {
+    position: relative;
+    background-color: $lesser-1;
+    video {
+        position: absolute;
+        @extend %img-cover;
+        mix-blend-mode: overlay;
+    }
+}
+
+// 聯絡我們
+#contact {
+    position: relative;
+    overflow: hidden;
+    @extend %flex-center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: $bg-1;
+
+    @media ($mediaMd) {
+        height: auto;
+    }
+
+    .content {
+        display: flex;
+        width: $width-80;
+
+        @media ($mediaSm) {
+            flex-direction: column;
+        }
+
+        >* {
+            flex: 1;
+            margin: $spacing-x-md;
+        }
+
+        h1 {
+            font-size: $font-size-xl;
+            font-weight: $f-w-b;
+        }
+
+        address {
+            font-size: $font-size-sm;
+            font-style: normal;
+            margin: $spacing-y-md;
+        }
+
+        iframe {
+            width: $width-full;
+            height: 300px;
+        }
+
+        /*聯絡表單*/
+        #contactForm {
+
+            >* {
+                display: block;
+                width: $width-full;
+            }
+
+            label {
+                margin: $spacing-label;
+            }
+
+            input {
+                @extend %input-style;
+            }
+
+            textarea {
+                @extend %input-style;
+            }
+
+            .btn-animat {
+                @extend %btn-animat
+            }
+        }
+
+    }
+
+    figure {
+        position: absolute;
+        width: 250px;
+
+        @media ($mediaMd) {
+            width: 200px;
+        }
+
+        @media ($mediaSm) {
+            display: none;
+        }
+    }
+
+    #flower_1 {
+        transform: rotate(30deg);
+        left: 0;
+        bottom: -50px;
+    }
+
+    #flower_2 {
+        transform: rotate(-30deg);
+        right: -30px;
+        top: 120px;
+    }
+}
+
+// 頁尾區
+footer {
+    @extend %flex-between;
+    padding: $spacing-md $spacing-xl;
+    background-color: $lesser-4;
+    color: $light;
+
+    @media ($mediaMd) {
+        flex-direction: column;
+    }
+
+    h2 {
+        font-size: $font-size-xl;
+
+        span {
+            font-size: $font-size-md;
+        }
+    }
+
+    a {
+        color: $light;
+    }
+
+    .sitemap {
+        @extend %flex-between;
+
+        @media ($mediaMd) {
+            margin-top: $spacing-md;
+        }
+
+        >li {
+            display: block;
+            margin: $spacing-x-xl;
+        }
+
+
+        @media ($mediaSm) {
+            flex-direction: column;
+
+            ul {
+                padding-left: $spacing-md;
+            }
+
+            li {
+                padding: 10px 0;
+            }
+        }
+    }
+
+    small {
+        align-self: self-end;
+
+        @media ($mediaSm) {
+            align-self: flex-start;
+            margin-top: $spacing-xl;
+        }
     }
 }

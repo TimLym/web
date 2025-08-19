@@ -141,13 +141,13 @@ button {
 }
 
 /* reset end */
-#contactform .btn-animat {
+#index section, #video div, #contact, #contact .content #contactForm .btn-animat {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#topbar {
+#topbar, footer, footer .sitemap {
   display: flex;
   justify-content: space-between;
 }
@@ -157,22 +157,68 @@ button {
   justify-content: flex-end;
 }
 
-#contactform .btn-animat {
+#news a figure img, #about video {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#news a .text-box p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+#service .list-box .item a p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#contact .content #contactForm .btn-animat {
   border-radius: 99px;
   height: 60px;
   width: 210px;
   cursor: pointer;
   margin: 20px auto;
-  border-bottom: solid 1px #CDAAAB;
+  border: solid 1px #CDAAAB;
   color: #8F6B6D;
   letter-spacing: 10px;
   padding: 0 32px 0 42px;
 }
-#contactform .btn-animat:hover {
+#contact .content #contactForm .btn-animat:hover {
   animation: rotate 0.7s ease-in-out both;
 }
-#contactform .btn-animat:hover span {
+#contact .content #contactForm .btn-animat:hover span {
   animation: storm 0.7s 0.1s ease-in-out both;
+}
+
+#contact .content #contactForm input, #contact .content #contactForm textarea {
+  border: solid 1px #CDAAAB;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #F3E4E4;
+  color: #8F6B6D;
+  resize: none;
+}
+#contact .content #contactForm input:focus, #contact .content #contactForm textarea:focus {
+  outline: 2px solid #CDAAAB;
+}
+#contact .content #contactForm input::-moz-placeholder, #contact .content #contactForm textarea::-moz-placeholder {
+  color: #CDAAAB;
+  font-size: 0.75rem;
+}
+#contact .content #contactForm input::placeholder, #contact .content #contactForm textarea::placeholder {
+  color: #CDAAAB;
+  font-size: 0.75rem;
+}
+
+#news a .text-box h2, #service .list-box .item a h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
 @keyframes rotate {
@@ -220,7 +266,8 @@ button {
 }
 /* 共用區 */
 .title {
-  margin: 110px 0 0 30px;
+  margin: 110px 0 30px;
+  position: relative;
 }
 .title * {
   text-align: center;
@@ -231,6 +278,26 @@ button {
   border-bottom: solid 3px #393a3a;
   line-height: 1;
   font-weight: 700;
+}
+.title h2::before {
+  content: "";
+  position: absolute;
+  background-color: #8F6B6D;
+  top: -15px;
+  left: -15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 99px;
+}
+.title h2::after {
+  content: "";
+  position: absolute;
+  background-color: #8F6B6D;
+  bottom: 20px;
+  right: -10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 99px;
 }
 .title h3 {
   font-family: "LXGW WenKai TC", cursive;
@@ -268,6 +335,17 @@ button {
   background-image: url(../images/icon-line-hover.svg);
 }
 
+.more {
+  width: 100px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #8F6B6D;
+  padding: 10px 25px;
+  margin-top: 25px;
+  color: #f2f7fa;
+  border-radius: 99px;
+}
+
 #topbar {
   position: fixed;
   top: 0;
@@ -280,7 +358,7 @@ button {
   padding: 0 10px;
   border-radius: 99px;
   background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7));
-  border-bottom: solid 2px rgba(255, 255, 255, 0.4);
+  border: solid 2px rgba(255, 255, 255, 0.4);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   /* 容器的陰影可以針對元素本身，子元素就不會套用 */
@@ -294,5 +372,265 @@ button {
 }
 #topbar .menu a:hover {
   color: #444;
-  border-bottom: solid 2px #444;
+  border: solid 2px #444;
+}
+
+/*主要內容區*/
+#index section {
+  flex-direction: column;
+  height: 100vh;
+}
+@media (max-width:820px) {
+  #index section#video {
+    height: auto;
+    padding-bottom: 110px;
+  }
+}
+
+.list-box {
+  display: flex;
+  gap: 30px;
+  width: 80%;
+  max-width: 1100px;
+}
+.list-box .item {
+  flex: 1;
+  border: solid 1px #CDAAAB;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 最新消息 */
+#news {
+  background-color: #F2EDED;
+}
+@media (max-width:820px) {
+  #news article:last-child {
+    display: none;
+  }
+}
+@media (max-width:640px) {
+  #news article:nth-child(n+2) {
+    display: none;
+  }
+}
+#news a:hover .text-box {
+  background-color: #f2f7fa;
+}
+#news a:hover figure {
+  filter: brightness(70%);
+}
+#news a figure {
+  height: 30vh;
+  transition: 0.4s;
+}
+#news a .text-box {
+  padding: 20px;
+  transition: 0.4s;
+}
+#news a .text-box p {
+  -webkit-line-clamp: 4;
+}
+
+#service {
+  background-color: #E6ECE5;
+}
+@media (max-width:820px) {
+  #service .list-box {
+    flex-direction: column;
+    height: 70vh;
+  }
+}
+#service .list-box .item {
+  display: flex;
+  align-items: flex-end;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width:820px) {
+  #service .list-box .item:nth-child(n+3) {
+    display: none;
+  }
+}
+@media (max-width:640px) {
+  #service .list-box .item:nth-child(n+2) {
+    display: none;
+  }
+}
+#service .list-box .item:nth-child(1) {
+  background-image: url(../images/pt_svc1.jpg);
+}
+#service .list-box .item:nth-child(2) {
+  background-image: url(../images/pt_svc2.jpg);
+}
+#service .list-box .item:nth-child(3) {
+  background-image: url(../images/pt_svc3.jpg);
+}
+#service .list-box .item:nth-child(4) {
+  background-image: url(../images/pt_svc4.jpg);
+}
+#service .list-box .item a {
+  padding: 20px;
+  color: #f7f9fb;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+}
+#service .list-box .item a:hover {
+  color: #0a0a0a;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#video {
+  background-image: url(../images/bg_contact.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+#video div {
+  height: 50vh;
+}
+@media (max-width:820px) {
+  #video div {
+    width: 70%;
+    height: auto;
+  }
+}
+#video div video {
+  height: 100%;
+}
+@media (max-width:820px) {
+  #video div video {
+    width: 70%;
+    height: auto;
+  }
+}
+
+#about {
+  position: relative;
+  background-color: #F3E4E4;
+}
+#about video {
+  position: absolute;
+  mix-blend-mode: overlay;
+}
+
+#contact {
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #F2EDED;
+}
+@media (max-width:820px) {
+  #contact {
+    height: auto;
+  }
+}
+#contact .content {
+  display: flex;
+  width: 80%;
+  /*聯絡表單*/
+}
+@media (max-width:640px) {
+  #contact .content {
+    flex-direction: column;
+  }
+}
+#contact .content > * {
+  flex: 1;
+  margin: 0 20px;
+}
+#contact .content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+#contact .content address {
+  font-size: 0.85rem;
+  font-style: normal;
+  margin: 20px 0;
+}
+#contact .content iframe {
+  width: 100%;
+  height: 300px;
+}
+#contact .content #contactForm > * {
+  display: block;
+  width: 100%;
+}
+#contact .content #contactForm label {
+  margin: 10px 0 5px;
+}
+#contact figure {
+  position: absolute;
+  width: 250px;
+}
+@media (max-width:820px) {
+  #contact figure {
+    width: 200px;
+  }
+}
+@media (max-width:640px) {
+  #contact figure {
+    display: none;
+  }
+}
+#contact #flower_1 {
+  transform: rotate(30deg);
+  left: 0;
+  bottom: -50px;
+}
+#contact #flower_2 {
+  transform: rotate(-30deg);
+  right: -30px;
+  top: 120px;
+}
+
+footer {
+  padding: 20px 30px;
+  background-color: #8F6B6D;
+  color: #f2f7fa;
+}
+@media (max-width:820px) {
+  footer {
+    flex-direction: column;
+  }
+}
+footer h2 {
+  font-size: 1.5rem;
+}
+footer h2 span {
+  font-size: 1rem;
+}
+footer a {
+  color: #f2f7fa;
+}
+@media (max-width:820px) {
+  footer .sitemap {
+    margin-top: 20px;
+  }
+}
+footer .sitemap > li {
+  display: block;
+  margin: 0 30px;
+}
+@media (max-width:640px) {
+  footer .sitemap {
+    flex-direction: column;
+  }
+  footer .sitemap ul {
+    padding-left: 20px;
+  }
+  footer .sitemap li {
+    padding: 10px 0;
+  }
+}
+footer small {
+  align-self: self-end;
+}
+@media (max-width:640px) {
+  footer small {
+    align-self: flex-start;
+    margin-top: 30px;
+  }
 }

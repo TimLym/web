@@ -5,7 +5,7 @@
 }
 
 @mixin bordered ($width: 1px, $color: $lesser-3) {
-    border-bottom: solid $width $color;
+    border: solid $width $color;
 }
 
 @mixin anmt ($name, $speed: .7s) {

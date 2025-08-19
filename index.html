@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.min.css">
+</head>
+
+<body>
+    <header id="topbar">
+        <div class="logo">
+            <img src="./images/logo_b.svg" alt="logo" id="logo">
+        </div>
+        <nav class="navigation">
+            <ul class="icon">
+                <li><a href="#" class="icon-fb"></a></li>
+                <li><a href="#" class="icon-ig"></a></li>
+                <li><a href="#" class="icon-line"></a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="#">SERVICE</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">VIDEO</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="index">
+        <section id="banner">
+            <header class="title">Banner</header>
+        </section>
+        <section id="news">
+            <header class="title">
+                <h2>NEWS</h2>
+                <h3>最新消息</h3>
+            </header>
+            <div class="list-box">
+                <article class="item">
+                    <a href="#">
+                        <figure><img src="./images/pt_news1.jpg" alt=""></figure>
+                        <div class="text-box">
+                            <h2>NEWS TITLE</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, provident temporibus? Odio nemo, illum molestias labore dolor aperiam, corrupti inventore excepturi error, assumenda atque voluptatibus impedit dolores? Ipsum, repellendus quisquam.</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="item">
+                    <a href="#">
+                        <figure><img src="./images/pt_news2.jpg" alt=""></figure>
+                        <div class="text-box">
+                            <h2>NEWS TITLE</h2>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis error, vero saepe minus nesciunt eum consequuntur commodi sunt fugiat voluptates placeat beatae facilis in vitae, id laudantium unde officia impedit.</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="item">
+                    <a href="#">
+                        <figure><img src="./images/pt_news3.jpg" alt=""></figure>
+                        <div class="text-box">
+                            <h2>NEWS TITLE</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolores laudantium, accusamus dicta ullam nam ex est voluptas repudiandae aut excepturi, rerum quis? Veniam facere libero, optio repudiandae quia alias.</p>
+                        </div>
+                    </a>
+                </article>
+            </div>
+            <a href="#" class="more">more</a>
+        </section>
+        <section id="service">
+            <header class="title">
+                <h2>SERVICE</h2>
+                <h3>服務項目</h3>
+            </header>
+            <ul class="list-box">
+                <li class="item">
+                    <a href="#">
+                        <h2>SERVICE TITLE</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates animi libero in, quas repudiandae rerum inventore adipisci quo velit sapiente eaque tempora blanditiis quibusdam praesentium. Exercitationem veniam maxime ratione nihil.</p>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <h2>SERVICE TITLE</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic maiores numquam pariatur. Quo repudiandae debitis labore voluptatem sint beatae deserunt, consectetur optio odio fugiat architecto, perferendis nulla, tempore cupiditate qui.</p>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <h2>SERVICE TITLE</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aut accusamus saepe quo blanditiis perspiciatis voluptas? Quis facere reiciendis, asperiores totam iure at dolore doloribus repudiandae veritatis accusantium distinctio expedita!</p>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="#">
+                        <h2>SERVICE TITLE</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt accusantium animi eligendi earum doloribus, ex repellendus eaque dignissimos, necessitatibus praesentium numquam consectetur fugiat eum iste consequatur eos, ipsa facilis obcaecati.</p>
+                    </a>
+                </li>
+            </ul>
+            <a href="#" class="more">more</a>
+        </section>
+        <section id="video">
+            <header class="title">
+                <h2>VIDEO</h2>
+                <h3>相關影片</h3>
+            </header>
+            <div>
+                <video src="./images/Planter.mp4" poster="./images/cover.jpg" controls preload="metadata"></video>
+            </div>
+        </section>
+        <section id="about">        
+            <header class="title">
+                <h2>ABOUT</h2>
+                <h3>關於我們</h3>
+            </header>
+            <!-- 背景影片 -->
+            <video src="./images/flower.mp4" muted autoplay loop playsinline ></video>
+        </section>
+    </main>
+
+    <!-- 頁尾區 -->
+    <footer>
+        <h2>芮塔花室
+            <span>Rita Flower</span>
+        </h2>
+        <nav>
+            <!-- ul>li*6>a -->
+            <ul class="sitemap">
+                <li><a href="./index.html">HOME</a></li>
+                <li>
+                    <a href="#">NEWS</a>
+                    <!-- ul>li*3>a[href="#"] -->
+                    <ul>
+                        <li><a href="#">優惠活動</a></li>
+                        <li><a href="#">媒體報導</a></li>
+                        <li><a href="#">商店公告</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">SERVICE</a>
+                    <ul>
+                        <li><a href="#">服務項目1</a></li>
+                        <li><a href="#">服務項目2</a></li>
+                        <li><a href="#">服務項目3</a></li>
+                        <li><a href="#">服務項目4</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">VIDEO</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+        <small>Copyright &copy; 2025 Rita Flower.</small>
+    </footer>
+</body>
+
+</html>

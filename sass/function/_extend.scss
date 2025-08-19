@@ -1,5 +1,5 @@
-@use "../variables/" as * ;
-@use "./mixin" as *; 
+@use "../variables/" as *;
+@use "./mixin" as *;
 // 因為_extend也在同資料夾中，不可以直接調用整個function資料夾
 
 %flex-center {
@@ -18,6 +18,28 @@
     justify-content: flex-end;
 }
 
+%img-cover {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+// 多行省略
+%multiple-lines {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+// 單行省略
+%single-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
 %btn-animat {
     border-radius: $radius-ex;
     @extend %flex-center;
@@ -29,11 +51,36 @@
     color: $lesser-4;
     letter-spacing: $spacing-xs;
     padding: 0 32px 0 42px;
-    
+
     &:hover {
         @include anmt($name: rotate);
+
         span {
             @include anmt($name: storm, $speed: 0.7s 0.1s);
         }
     }
+}
+
+%input-style {
+    @include bordered;
+    padding: $spacing-xs;
+    border-radius: $radius-sm;
+    background-color: $lesser-1;
+    color: $lesser-4;
+    resize: none;
+
+    &:focus {
+        outline: 2px solid $lesser-3;
+    }
+
+    &::placeholder {
+        color: $lesser-3;
+        font-size: $font-size-xs;
+    }
+}
+
+%list-title {
+    font-size: $font-size-lg;
+    font-weight: $f-w-b;
+    margin-bottom: $spacing-sm;
 }
