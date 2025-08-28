@@ -3,7 +3,7 @@
 @use "./function" as *;
 @use "./keyFrame";
 
-@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=LXGW+WenKai+TC&family=Ubuntu&display=swap');
 
 @font-face {
     font-family: posse;
@@ -105,25 +105,82 @@
     z-index: $z-ex;
     @extend %flex-between;
     padding: $spacing-xs $spacing-xl;
+    .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        .hamburger {
+            background-color: transparent;
+            border: none;
+            margin-bottom: $spacing-xs;
+            @media ($mediaXl) {
+                display: none;
+            }
+            .bar{
+                display: block;
+                width: 24px;
+                height: 3px;
+                background-color: $deep;
+                margin: $spacing-xxs auto;        
+            }
+            &.is-active {
+                .bar {
+                    &:nth-child(1) {
+                        transform: rotate(45deg) translate(5px,6px);
 
-    ul {
-        @extend %flex-end;
-    }
+                    }
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+                    &:nth-child(3) {
+                        transform: rotate(-45deg) translate(5px,-6px);
+                    }
+                }
+            }
+        }
+    
+        .navigation {
+            &.show {
+                display: flex;
+                @include anmt($name:show)
+            }
+            @media ($mediaLg) {
+                @include glassmorphism;
+                border-radius: $radius-md;
+                flex-direction:column;
+                padding: $spacing-xs;                
+                display: none;                
+                @include anmt($name:hide)
+            }
 
-    .menu {
-        padding: $spacing-x-xs;
-        border-radius: $radius-ex;
-        @include glassmorphism;
-
-        a {
-            font-family: $family-en;
-            font-weight: $f-w-a;
-            margin: $spacing-xs;
-            @include border-b(2px, transparent);
-
-            &:hover {
-                color: $deep;
-                @include bordered(2px, $deep);
+    
+            ul {
+                @extend %flex-end;
+            }
+    
+            .menu {
+                padding: $spacing-x-xs;
+                border-radius: $radius-ex;
+                @media ($mediaXl) {
+                    @include glassmorphism;                
+                }
+    
+                @media ($mediaLg) {
+                    flex-direction: column ;
+                    order: -1;
+                }
+    
+                a {
+                    font-family: $family-en;
+                    font-weight: $f-w-a;
+                    margin: $spacing-xs;
+                    @include border-b(2px, transparent);
+    
+                    &:hover {
+                        color: $deep;
+                        @include border-b(2px, $deep);
+                    }
+                }
             }
         }
     }
@@ -160,7 +217,6 @@
 }
 
 /* 最新消息 */
-
 #news {
     background-color: $bg-1;
 
@@ -316,12 +372,81 @@
 }
 
 // 關於我們
-
 #about {
     position: relative;
     background-color: $lesser-1;
-    video {
+
+    div {
         position: absolute;
+        z-index: 1;
+        background-color: $alpha-70;
+        width: 60%;
+        height: 100%;
+        @extend %flex-center;
+        flex-direction: column;
+
+        @media ($mediaMd) {
+            width: 90%;
+        }
+
+        p {
+            overflow: scroll;
+            width: 90%;
+            margin-bottom: $spacing-xxl;
+            padding-right: $spacing-xs;
+
+            &::-webkit-scrollbar {
+                //主要滾動條 包含按鈕範圍
+                background-color: $light-gray;
+                width: 12px;
+                height: 12px;
+            }
+
+            &::-webkit-scrollbar-track {
+                // 不包含按鈕範圍
+                background-color: $lesser-1;
+                border-radius: $radius-ex;
+            }
+
+            &::-webkit-scrollbar-button {
+                // 滾動條兩邊
+                // background-color: $lesser-3;
+                // height: $spacing-xs;
+                // width: $spacing-xs;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+
+                &:vertical:single-button:start {
+                    background-image: url(../images/arrow-up.svg);
+                }
+
+                &:vertical:single-button:end {
+                    background-image: url(../images/arrow-down.svg);
+                }
+
+                &:horizontal:single-button:start {
+                    background-image: url(../images/arrow-left.svg);
+                }
+
+                &:horizontal:single-button:end {
+                    background-image: url(../images/arrow-right.svg);
+                }
+            }
+
+            &::-webkit-scrollbar-thumb {
+                //滾輪
+                background-color: $lesser-4;
+                border-radius: $radius-ex;
+            }
+
+            &::-webkit-scrollbar-corner {
+                background-color: $lesser-4;
+            }
+        }
+    }
+
+    video {
         @extend %img-cover;
         mix-blend-mode: overlay;
     }
@@ -387,6 +512,10 @@
 
             textarea {
                 @extend %input-style;
+
+                &::-webkit-resizer {
+                    background-image: url(../images/arrow-45.svg);
+                }
             }
 
             .btn-animat {
@@ -477,6 +606,24 @@ footer {
         @media ($mediaSm) {
             align-self: flex-start;
             margin-top: $spacing-xl;
+        }
+    }
+
+    #go-top {
+        width: 30px;
+        height: 30px;
+        background-color: $lesser-3;
+        border: none;
+        border-radius: $radius-ex;
+        position: fixed;
+        bottom: $spacing-xl;
+        right: $spacing-xl;
+        cursor: pointer;
+        z-index: $z-ex;
+        padding: 5px;
+
+        &:hover {
+            background-color: $lesser-2;
         }
     }
 }

@@ -13,23 +13,33 @@
     <!-- 頁首區 -->
     <header id="topbar">
         <div class="logo">
-            <img src="./images/logo_b.svg" alt="logo" id="logo">
+            <a href="./index.html">
+                <img src="./images/logo_b.svg" alt="logo" id="logo">
+            </a>
         </div>
-        <nav class="navigation">
-            <ul class="icon">
-                <li><a href="#" class="icon-fb"></a></li>
-                <li><a href="#" class="icon-ig"></a></li>
-                <li><a href="#" class="icon-line"></a></li>
-            </ul>
-            <ul class="menu">
-                <li><a href="./index.html">HOME</a></li>
-                <li><a href="#">NEWS</a></li>
-                <li><a href="#">SERVICE</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">VIDEO</a></li>
-                <li><a href="./contact.html">CONTACT</a></li>
-            </ul>
-        </nav>
+        <!-- 漢堡按鈕 -->
+        <div class="nav">
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="navigation">
+                <ul class="icon">
+                    <li><a href="#" class="icon-fb"></a></li>
+                    <li><a href="#" class="icon-ig"></a></li>
+                    <li><a href="#" class="icon-line"></a></li>
+                </ul>
+                <ul class="menu">
+                    <li><a href="./index.html">HOME</a></li>
+                    <li><a href="#news">NEWS</a></li>
+                    <li><a href="#service">SERVICE</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#video">VIDEO</a></li>
+                    <li><a href="./contact.html#contactForm">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <!-- 主要內容區 -->
@@ -40,6 +50,7 @@
             <header class="title">
                 <h2>CONTACT</h2>
                 <h3>聯絡我們</h3>
+
             </header>
             <!-- 聯絡區塊 -->
             <div class="content">
@@ -121,6 +132,15 @@
         </nav>
         <small>Copyright &copy; 2025 Rita Flower.</small>
     </footer>
+    <!-- jquery  CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- 套件js -->
+    <script src="./js/carousel.js"></script>
+    <!-- 套件 smoove -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smoove/0.2.10/jquery.smoove.min.js"></script>
+    <!-- 自定義 My Jquery -->
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
